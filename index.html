@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Ugadi 2024 - New Beginnings</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Tangerine:wght@700&family=Noto+Serif+Devanagari:wght@400;700&display=swap');
+        
+        :root {
+            --primary: #e67e22;
+            --secondary: #d35400;
+            --accent: #27ae60;
+            --light: #f8e8d5;
+            --dark: #333;
+            --text: #555;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f9f3e9 0%, #f5e5c8 100%);
+            color: var(--dark);
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .container {
+            max-width: 1000px;
+            width: 90%;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .header {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        h1 {
+            font-family: 'Tangerine', cursive;
+            font-size: 6rem;
+            color: var(--secondary);
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .ugadi-image-container {
+            position: relative;
+            width: 320px;
+            height: 320px;
+            margin: 2rem auto;
+            perspective: 1000px;
+        }
+        
+        .ugadi-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 10px solid white;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            transition: all 0.5s ease;
+            transform-style: preserve-3d;
+        }
+        
+        .ugadi-image:hover {
+            transform: rotateY(15deg) scale(1.05);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+        }
+        
+        .ugadi-image::after {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: -15px;
+            bottom: -15px;
+            border-radius: 50%;
+            border: 2px dashed var(--primary);
+            animation: rotate 20s linear infinite;
+            pointer-events: none;
+            opacity: 0.7;
+        }
+        
+        .message {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            margin: 2.5rem 0;
+            color: var(--text);
+            position: relative;
+            padding: 0 1rem;
+        }
+        
+        .message::before, .message::after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--primary);
+            opacity: 0.3;
+            position: absolute;
+        }
+        
+        .message::before {
+            top: -1.5rem;
+            left: -0.5rem;
+        }
+        
+        .message::after {
+            bottom: -2.5rem;
+            right: -0.5rem;
+        }
+        
+        .quote-container {
+            background: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(255,248,240,0.8) 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2.5rem 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .quote-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+        }
+        
+        .quote {
+            font-style: italic;
+            font-size: 1.4rem;
+            color: var(--secondary);
+            margin: 0;
+            font-weight: 500;
+            position: relative;
+        }
+        
+        .quote-author {
+            display: block;
+            margin-top: 1rem;
+            font-family: 'Noto Serif Devanagari', serif;
+            font-size: 1.2rem;
+            color: var(--accent);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: all 0.4s;
+            box-shadow: 0 5px 20px rgba(230, 126, 34, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(230, 126, 34, 0.4);
+        }
+        
+        .btn:hover::before {
+            opacity: 1;
+        }
+        
+        .btn:active {
+            transform: translateY(-2px);
+        }
+        
+        .footer {
+            margin-top: 3rem;
+            font-size: 0.9rem;
+            color: var(--text);
+            opacity: 0.8;
+        }
+        
+        /* Decorations */
+        .flowers {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23e67e22"><path d="M12,2C13.1,2 14,2.9 14,4C14,5.1 13.1,6 12,6C10.9,6 10,5.1 10,4C10,2.9 10.9,2 12,2M15.5,8C16.3,8 17,8.7 17,9.5C17,10.3 16.3,11 15.5,11C14.7,11 14,10.3 14,9.5C14,8.7 14.7,8 15.5,8M8.5,8C9.3,8 10,8.7 10,9.5C10,10.3 9.3,11 8.5,11C7.7,11 7,10.3 7,9.5C7,8.7 7.7,8 8.5,8M12,11C13.1,11 14,11.9 14,13C14,14.1 13.1,15 12,15C10.9,15 10,14.1 10,13C10,11.9 10.9,11 12,11M19,17V19H5V17C5,14.8 8.1,13 12,13C15.9,13 19,14.8 19,17Z" /></svg>');
+            background-size: contain;
+            opacity: 0;
+            z-index: 1;
+            animation: fall linear forwards;
+        }
+        
+        .mango-leaves {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%2327ae60" d="M50,10 C60,30 80,40 90,60 C80,80 60,90 50,70 C40,90 20,80 10,60 C20,40 40,30 50,10 Z"/></svg>');
+            background-size: contain;
+            opacity: 0.7;
+            z-index: 1;
+            animation: sway 8s infinite alternate ease-in-out;
+        }
+        
+        .rangoli {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="%23e67e22" stroke-width="2"/><path d="M50,10 A40,40 0 0,1 90,50 A40,40 0 0,1 50,90 A40,40 0 0,1 10,50 A40,40 0 0,1 50,10 Z" fill="none" stroke="%23d35400" stroke-width="1"/></svg>');
+            background-size: contain;
+            opacity: 0.1;
+            z-index: 0;
+            animation: rotate 30s linear infinite;
+        }
+        
+        /* Animations */
+        @keyframes fall {
+            0% {
+                transform: translateY(-50px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes sway {
+            0% { transform: rotate(-8deg) scale(1); }
+            50% { transform: rotate(8deg) scale(1.05); }
+            100% { transform: rotate(-8deg) scale(1); }
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 4.5rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            .ugadi-image-container {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .message {
+                font-size: 1.1rem;
+            }
+            
+            .quote {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header animate__animated animate__fadeInDown">
+            <h1 class="animate__animated animate__zoomIn">Happy Ugadi</h1>
+            <h2 class="animate__animated animate__fadeIn animate__delay-1s">New Beginnings, Fresh Hopes</h2>
+        </div>
+        
+        <div class="ugadi-image-container animate__animated animate__zoomIn animate__delay-1s">
+            <img src="hu.jpg" alt="Ugadi Celebration" class="ugadi-image">
+        </div>
+        
+        <div class="message animate__animated animate__fadeIn animate__delay-1-5s">
+            <p>As we celebrate Ugadi, the festival marking the beginning of a new year, may your life be filled with the perfect blend of joy (Bevu) and sweetness (Bella) that symbolizes this auspicious occasion.</p>
+            <p>May Lord Brahma bless you with prosperity, good health, and success in all your endeavors throughout the coming year.</p>
+        </div>
+        
+        <div class="quote-container animate__animated animate__fadeInUp animate__delay-2s">
+            <p class="quote">"Ugadi is not just a change of calendar, but a beautiful opportunity to renew our hopes, refresh our dreams, and rejuvenate our spirits for the journey ahead."</p>
+            <span class="quote-author">- Darshan AB</span>
+        </div>
+        
+        <button class="btn animate__animated animate__pulse animate__infinite animate__slower" id="wishBtn">Receive Ugadi Blessings</button>
+        
+        <div class="footer animate__animated animate__fadeIn animate__delay-3s">
+            <p>Wishing you and your family a joyful Ugadi filled with happiness and prosperity</p>
+            <p>© <span id="currentYear"></span> Ugadi Greetings</p>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create falling flowers
+            function createFlowers() {
+                const flowersCount = 40;
+                for (let i = 0; i < flowersCount; i++) {
+                    const flower = document.createElement('div');
+                    flower.classList.add('flowers');
+                    
+                    // Random properties
+                    const posX = Math.random() * window.innerWidth;
+                    const delay = Math.random() * 8;
+                    const duration = 8 + Math.random() * 12;
+                    const size = 15 + Math.random() * 25;
+                    const color = `hsl(${Math.random() * 30 + 20}, 80%, 60%)`;
+                    
+                    flower.style.left = `${posX}px`;
+                    flower.style.top = `-50px`;
+                    flower.style.width = `${size}px`;
+                    flower.style.height = `${size}px`;
+                    flower.style.animationDuration = `${duration}s`;
+                    flower.style.animationDelay = `${delay}s`;
+                    flower.style.filter = `hue-rotate(${Math.random() * 60 - 30}deg)`;
+                    
+                    document.body.appendChild(flower);
+                }
+            }
+            
+            // Create mango leaves decoration
+            function createMangoLeaves() {
+                const leavesCount = 10;
+                for (let i = 0; i < leavesCount; i++) {
+                    const leaf = document.createElement('div');
+                    leaf.classList.add('mango-leaves');
+                    
+                    // Position around the edges
+                    if (i % 2 === 0) {
+                        // Left side
+                        leaf.style.left = `${-40 + Math.random() * 30}px`;
+                    } else {
+                        // Right side
+                        leaf.style.right = `${-40 + Math.random() * 30}px`;
+                    }
+                    
+                    leaf.style.top = `${50 + (i * 80)}px`;
+                    leaf.style.transform = `rotate(${Math.random() * 30 - 15}deg)`;
+                    leaf.style.width = `${50 + Math.random() * 70}px`;
+                    leaf.style.height = `${50 + Math.random() * 70}px`;
+                    leaf.style.animationDelay = `${Math.random() * 5}s`;
+                    
+                    document.body.appendChild(leaf);
+                }
+            }
+            
+            // Create rangoli patterns
+            function createRangoli() {
+                const rangoliCount = 4;
+                const positions = [
+                    { top: '10%', left: '5%' },
+                    { top: '10%', right: '5%' },
+                    { bottom: '10%', left: '5%' },
+                    { bottom: '10%', right: '5%' }
+                ];
+                
+                for (let i = 0; i < rangoliCount; i++) {
+                    const rangoli = document.createElement('div');
+                    rangoli.classList.add('rangoli');
+                    
+                    Object.assign(rangoli.style, positions[i]);
+                    rangoli.style.animationDuration = `${30 + Math.random() * 30}s`;
+                    
+                    document.body.appendChild(rangoli);
+                }
+            }
+            
+            // Special wish button
+            const wishBtn = document.getElementById('wishBtn');
+            wishBtn.addEventListener('click', function() {
+                // Create a modal with special wish
+                const modal = document.createElement('div');
+                modal.style.position = 'fixed';
+                modal.style.top = '0';
+                modal.style.left = '0';
+                modal.style.width = '100%';
+                modal.style.height = '100%';
+                modal.style.backgroundColor = 'rgba(0,0,0,0.7)';
+                modal.style.display = 'flex';
+                modal.style.alignItems = 'center';
+                modal.style.justifyContent = 'center';
+                modal.style.zIndex = '1000';
+                modal.style.opacity = '0';
+                modal.style.transition = 'opacity 0.3s';
+                
+                const modalContent = document.createElement('div');
+                modalContent.style.backgroundColor = 'white';
+                modalContent.style.padding = '2rem';
+                modalContent.style.borderRadius = '15px';
+                modalContent.style.maxWidth = '500px';
+                modalContent.style.width = '90%';
+                modalContent.style.textAlign = 'center';
+                modalContent.style.position = 'relative';
+                modalContent.style.transform = 'scale(0.8)';
+                modalContent.style.transition = 'transform 0.3s';
+                
+                modalContent.innerHTML = `
+                    <h3 style="font-family: 'Tangerine', cursive; font-size: 2.5rem; color: var(--secondary); margin-bottom: 1rem;">Ugadi Subhakankshalu!</h3>
+                    <p style="margin-bottom: 1.5rem; font-size: 1.1rem; line-height: 1.6;">
+                        May this Ugadi bring you:<br>
+                        <span style="color: var(--accent);">Joy like the blossoms of spring,<br>
+                        Prosperity like the harvest of fields,<br>
+                        And sweetness like the Bevu-Bella!</span>
+                    </p>
+                    <button id="closeModal" style="padding: 0.7rem 1.5rem; background: var(--primary); color: white; border: none; border-radius: 50px; cursor: pointer; transition: all 0.3s;">Close</button>
+                `;
+                
+                modal.appendChild(modalContent);
+                document.body.appendChild(modal);
+                
+                // Show modal with animation
+                setTimeout(() => {
+                    modal.style.opacity = '1';
+                    modalContent.style.transform = 'scale(1)';
+                }, 10);
+                
+                // Close modal
+                document.getElementById('closeModal').addEventListener('click', function() {
+                    modal.style.opacity = '0';
+                    modalContent.style.transform = 'scale(0.8)';
+                    setTimeout(() => {
+                        modal.remove();
+                    }, 300);
+                });
+                
+                // Create a burst of flowers
+                for (let i = 0; i < 25; i++) {
+                    const flower = document.createElement('div');
+                    flower.classList.add('flowers');
+                    
+                    // Position around the button
+                    const angle = Math.random() * Math.PI * 2;
+                    const distance = 50 + Math.random() * 100;
+                    const posX = wishBtn.getBoundingClientRect().left + wishBtn.offsetWidth/2 + Math.cos(angle) * distance;
+                    const posY = wishBtn.getBoundingClientRect().top + wishBtn.offsetHeight/2 + Math.sin(angle) * distance;
+                    
+                    flower.style.left = `${posX}px`;
+                    flower.style.top = `${posY}px`;
+                    flower.style.width = `${15 + Math.random() * 25}px`;
+                    flower.style.height = `${15 + Math.random() * 25}px`;
+                    flower.style.animationDuration = `${2 + Math.random() * 3}s`;
+                    flower.style.animationDelay = '0s';
+                    
+                    document.body.appendChild(flower);
+                    
+                    // Remove after animation
+                    setTimeout(() => {
+                        flower.remove();
+                    }, 5000);
+                }
+            });
+            
+            // Set current year
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+            
+            // Initialize decorations
+            createFlowers();
+            createMangoLeaves();
+            createRangoli();
+            
+            // Make image float gently
+            const ugadiImage = document.querySelector('.ugadi-image');
+            setInterval(() => {
+                ugadiImage.style.transform = `rotateY(${Math.sin(Date.now() / 2000) * 5}deg) scale(${1 + Math.sin(Date.now() / 1500) * 0.03})`;
+            }, 16);
+        });
+    </script>
+</body>
+</html>
